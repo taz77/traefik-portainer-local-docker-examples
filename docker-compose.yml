@@ -16,13 +16,9 @@ services:
   portainer:
     image: portainer/portainer
     container_name: "${PROJECT_NAME}_portainer"
-    restart: always
+    command: --no-auth -H unix:///var/run/docker.sock
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
-      - portainer_data:/data
     labels:
       - "traefik.http.routers.${PROJECT_NAME}_portainer.rule=Host(`portainer.${PROJECT_BASE_URL}`)"
       - "traefik.http.services.${PROJECT_NAME}_portainer.loadbalancer.server.port=9000"
-
-volumes:
-  portainer_data:
