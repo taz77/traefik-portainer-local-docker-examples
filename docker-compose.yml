@@ -4,6 +4,7 @@ services:
   traefik:
     image: "traefik:2.0"
     container_name: "${PROJECT_NAME}_traefik"
+    network_mode: bridge
     command:
       - "--providers.docker=true"
       - "--api.insecure=true"
@@ -16,6 +17,7 @@ services:
   portainer:
     image: portainer/portainer
     container_name: "${PROJECT_NAME}_portainer"
+    network_mode: bridge
     command: --no-auth -H unix:///var/run/docker.sock
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
