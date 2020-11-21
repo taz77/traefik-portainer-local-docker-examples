@@ -2,7 +2,7 @@ version: "3"
 
 services:
   traefik:
-    image: "traefik:2.2"
+    image: "traefik:2.3"
     container_name: "${PROJECT_NAME}_traefik"
     network_mode: bridge
     command:
