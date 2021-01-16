@@ -25,6 +25,6 @@ services:
     labels:
       - "traefik.http.routers.${PROJECT_NAME}_portainer.rule=Host(`portainer.${PROJECT_BASE_URL}`)"
       - "traefik.http.services.${PROJECT_NAME}_portainer.loadbalancer.server.port=9000"
-volumes: 
+volumes:
   portainer:
     driver: local
